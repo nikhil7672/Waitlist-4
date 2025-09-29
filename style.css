@@ -365,7 +365,7 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
 }
 .form-input::placeholder {
   font-family: 'Nexa', Arial, sans-serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 400;
   color:#908C8C;
   font-style: normal;
@@ -479,7 +479,7 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   color: #999;
   font-weight: 400;
   font-family: 'Nexa-Trial', Arial, sans-serif;
-  font-size: 18px;
+  font-size: 19px;
   font-style: normal;
 }
 .form-input.email-input-submit:focus {
