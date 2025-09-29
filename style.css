@@ -1,0 +1,767 @@
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Open Sans', sans-serif; background: #fff; color: #333; }
+
+/* Custom Fonts */
+@font-face {
+  font-family: "Barionette Script PERSONAL USE";
+  src: url("./Barionette-Script-Font/BarionetteScript_PERSONAL_USE_ONLY.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Ocean Trace-Personal use";
+  src: url("./ocean-trace-personal-use/OceanTrace.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nexa-Trial";
+  src: url("./fonts/Nexa-Trial.otf") format("opentype");
+}
+
+
+/* Header Top */
+.header-top {
+  width: 100%;
+  max-width: 1920px;
+  height: 64px;
+  flex-shrink: 0;
+  background: #D9D9D9;
+  position: relative;
+  margin: 0 auto;
+}
+.header-top .logo {
+  position: absolute;
+  width: 202px;
+  height: 143px;
+  flex-shrink: 0;
+  aspect-ratio: 202/143;
+  top: -39px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-top .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* .logo {
+  position: absolute;
+  width: 202px;
+  height: 143px;
+  flex-shrink: 0;
+  aspect-ratio: 202/143;
+  top: -39px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Header Bottom */
+.header-bottom {
+  width: 100%;
+  max-width: 1920px;
+  height: 64px;
+  flex-shrink: 0;
+  background: #2B1215;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.header-bottom nav ul {
+  list-style: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 46px;
+}
+.header-bottom nav a {
+  text-decoration: none;
+  color: #FFF;
+  font-family: "Nexa-Trial", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header-bottom nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+  width: 1920px;
+  height: 2120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+
+.hero-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+}
+
+/* Hero Image */
+.hero-image {
+  width: 486px;
+  height: 612px;
+  flex-shrink: 0;
+  aspect-ratio: 27/34;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hero Content */
+.hero-content {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+/* Heading */
+.hero-content h2 {
+  display: flex;
+  width: 710px;
+  height: 210px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+
+  font-family: "Nexa", sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+
+  background: linear-gradient(90deg, #5b2b2a, #f1c40f, #5b2b2a);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 8s linear infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Description */
+.hero-content p.description {
+  width: 709px;
+  color: #000000;
+  font-family: "Barionette Script PERSONAL USE", cursive;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.84px;
+  
+  /* Fix spacing from heading */
+  margin-top: 30px;    /* add space above */
+  margin-bottom: 80px; /* keeps space for signature */
+}
+
+
+/* Signature */
+.hero-content p.signature {
+  position: absolute;
+  right: 40px;
+  bottom: 120px;
+  color: #000;
+  font-family: "Ocean Trace-Personal use", cursive;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.72px;
+  text-transform: capitalize;
+}
+
+.btn {
+  display: flex;
+  width: 158px;
+  height: 56px;
+  padding: 14px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  border-radius: 11px;
+  background: #2B1215;
+  color: #FFF;
+
+  font-family: "Nexa", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.08);
+  background: #5b2b2a;
+  box-shadow: 0 15px 25px rgba(91, 43, 42, 0.5);
+}
+
+
+/* Responsive */
+@media(max-width: 900px) {
+  .header-top, .header-bottom { width: 100%; }
+  .hero-container { flex-direction: column; }
+  .hero-image img { width: 80%; height: auto; }
+  .hero-content { text-align: center; padding: 20px; }
+  .btn { margin: 20px auto; }
+  .signature {
+    position: static;
+    margin: 10px auto;
+    text-align: center;
+  }
+}
+
+
+
+/* Left Side - Pitches */
+.pitches-section {
+    flex: 1;
+    max-width: 500px;
+    margin-right: 90px; /* adjust space between pitches and form */
+}
+
+
+.section-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: #8b7355;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-number::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #8b7355, #d4b896);
+}
+
+.pitch {
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(139, 115, 85, 0.2);
+    transition: all 0.3s ease;
+}
+
+.pitch:hover {
+    transform: translateX(10px);
+    background: rgba(139, 115, 85, 0.05);
+    padding-left: 20px;
+    border-radius: 10px;
+}
+
+.pitch:last-child {
+    border-bottom: none;
+}
+
+.pitch-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #2c2c2c;
+    font-family: "Nexa-Trial", sans-serif;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.pitch-text {
+    font-size: 20px;
+    color: #5a5a5a;
+    font-family: "Nexa-Trial", sans-serif;
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+
+/* Right Side - Form */
+.form-section {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pitches-and-form {
+    position: relative;
+}
+
+.form-container {
+    width: 632px;
+    height: 546px;
+    flex-shrink: 0;
+    margin-left: 90px;
+    margin-bottom: 70px;
+    background: #2B1215;
+    border-radius: 62px;
+    position: relative;
+    overflow: hidden;
+    padding: 50px; /* space for inputs */
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+}
+
+.form-title {
+    color: #000;
+    font-family:"Nexa-Trial", sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    margin-right: 7rem;
+    line-height: 149.417%; /* 71.72px */
+    text-transform: capitalize;
+    text-align: right;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.title-box {
+  text-align: center; /* Center align text + arrow */
+  margin-bottom: 10px; /* spacing below */
+}
+
+.arrow-down {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    transform: rotate(90deg);
+    display: inline-block;
+    object-fit: contain; /* ensures the image fits inside the box */
+    margin-right: -42rem;   /* optional spacing between title and arrow */
+    vertical-align: right; /* aligns with text */
+}
+
+.form-input {
+    width: 100%;
+    max-width: 532px;          /* fits inside container padding */
+    height: 77px;
+    background: #FFF;
+    border-radius: 16px;
+    border: 2px solid transparent; /* transparent base border */
+    padding: 0 20px;
+    font-size: 18px;
+    font-family: inherit;
+    color: #2c2c2c;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* smooth hover/focus effect */
+}
+
+/* Focus effect */
+.form-input:focus {
+    outline: none;
+    border-color: #8b7355;     /* warm brown border */
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(139, 115, 85, 0.25);
+}
+
+.form-input::placeholder {
+    font-family: 'Nexa', sans-serif;  /* use Nexa font */
+    font-size: 20px;                  /* same as input text */
+    font-weight: 700;
+    color:#908C8C;               /* subtle grey */
+    font-weight: 400;
+    font-size: 20px;              /* matches input text size */
+    font-style: normal;   
+    text-transform: capitalize;      /* keeps Nexa consistency */
+    opacity: 0.9;                 /* softer look */
+}
+
+
+/* Container for birthday inputs */
+.birthday-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 380px;
+}
+
+/* Label styling */
+.birthday-label {
+    color: #908C8C;
+    font-family: 'Nexa-Trial', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-transform: capitalize;
+}
+
+/* Inputs + calendar button wrapper */
+.birthday-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Individual birthday input fields (DD, MM, YY) */
+.form-input.birthday-input {
+    width: 56px;
+    height: 44px;
+    border: px solid #ccc;         /* softer border */
+    border-radius: 10px;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: #4a4a4a;                 /* darker, muted text */
+    background: #f7f5f3;            /* soft neutral background */
+    font-family: 'Nexa-Trial', sans-serif;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.05), -1px -1px 4px rgba(255,255,255,0.6);
+    transition: all 0.3s ease;
+}
+
+.form-input.birthday-input:focus {
+    outline: none;
+    border-color: #7a6f61;          /* subtle focus color */
+    box-shadow: 0 0 5px rgba(122,111,97,0.3);
+}
+
+.form-input.birthday-input::placeholder {
+    color: #aaa;
+    font-weight: 400;
+}
+
+/* Calendar button */
+.calendar-btn {
+    width: 48px;
+    height: 44px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #f7f5f3;             /* soft neutral background */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #7a6f61;                  /* muted warm brown */
+    transition: all 0.2s ease;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.05), -1px -1px 4px rgba(255,255,255,0.6);
+}
+
+.calendar-btn:hover {
+    background: #ece7e1;             /* subtle hover */
+    color: #5f5345;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.05), inset 0 0 3px rgba(255,255,255,0.3);
+}
+
+.calendar-btn:active {
+    transform: scale(0.97);
+    box-shadow: inset 1px 1px 4px rgba(0,0,0,0.1), inset -1px -1px 4px rgba(255,255,255,0.4);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.submit-section {
+    display: flex;
+    align-items: center;
+    width: 535px;               /* fixed width */
+    height: 77px;                    /* fixed height */
+    flex-shrink: 0;                  /* prevent shrinking in flex container */
+    background: #FFF;                /* background color */
+    border-radius: 18px;             /* updated border-radius */
+    overflow: hidden;                /* hide overflow content */ /* subtle shadow */    /* border */                 /* optional horizontal padding for inner elements *          /* include padding/border in width */
+}
+
+
+.form-input.email-input-submit {
+    width: 126.803px;             /* fixed input width */
+    height: 50px;                   /* height as before */
+    padding: 0 20px;                /* horizontal padding */
+    border: none;                   /* remove border */
+    background: transparent;        /* transparent background */
+    color: #908C8C;                 /* text color */
+    font-family: 'Nexa-Trial', sans-serif; /* font family */
+    font-size: 20px;                /* font size */
+    font-style: normal;             /* normal style */
+    font-weight: 400;               /* weight */
+    line-height: normal;            /* line-height, 0% is invalid, use normal */
+    text-transform: capitalize;     /* capitalize text */
+    outline: none;                  /* remove default outline */
+    flex: 1;                        /* flex if inside flex container */
+    box-sizing: border-box;         /* include padding in width */
+}
+
+.form-input.email-input-submit::placeholder {
+    color: #999;                    /* placeholder color */
+    font-weight: 400;  
+    font-family: 'Nexa-Trial', sans-serif; /* font family */
+    font-size: 18px;                /* font size */
+    font-style: normal;             /* placeholder weight */
+}
+.form-input.email-input-submit:focus {
+    outline: none;
+}
+
+.submit-btn {
+    width: 167.589px;               /* fixed width */
+    height: 77px;                    /* match the submit-section height */
+    flex-shrink: 0;                  /* prevent shrinking in flex container */
+    padding: 0 20px;                 /* horizontal padding */
+    background: #533338;             /* button background */
+    color: #fff;                     /* text color */
+    border: none;                    /* remove border */
+    border-radius: 16px;             /* rounded corners */
+    font-size: 14px;                 /* font size */
+    font-weight: 500;                /* font weight */
+    cursor: pointer;                 /* pointer cursor on hover */
+    transition: all 0.2s ease;       /* smooth hover effect */
+    white-space: nowrap;              /* prevent text wrap */
+    position: relative;               /* for possible inner effects */
+    display: flex;                    /* center text vertically & horizontally */
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;          /* include padding/border in width */
+}
+
+
+.submit-btn:hover {
+    background: #7A3A0F;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+.submit-btn::before {
+    content: "✓";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+}
+.tribe-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.tribe-banner .arrows:first-child {
+  width: 39px;
+  height: 39px;
+}
+
+.tribe-banner .arrows:last-child {
+  width: 39px;
+  height: 39px;
+
+}
+.tribe-banner h2 {
+  margin: 0; /* remove any default margin */
+  font-family: "Nexa-Trial", sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: #000000;
+  text-transform: uppercase;
+}
+.tribe-banner .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tribe-banner .logo img {
+  width: 222px;
+  height: 157px;
+  object-fit: contain;
+}
+.text-logo {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* very tight spacing */
+}
+
+
+    .countdown-container {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    display: flex;
+    gap: 10rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.countdown-item {
+    text-align: center;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #000;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .countdown-container {
+        gap: 20px;
+    }
+    
+    .countdown-number {
+        font-size: 3rem;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-container {
+        gap: 15px;
+    }
+    
+    .countdown-number {
+        font-size: 2.5rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.8rem;
+    }
+}
+
+/* Error message styling */
+.error-message {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #e63946; /* modern red */
+  font-weight: 500;
+}
+
+/* Submit button states */
+.submit-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #533338;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#pitches {
+  scroll-margin-top: 80px; /* adjust based on your header height */
+}
+.form-container {
+  scroll-margin-top: 100px; /* or whatever space you want above */
+}
+
