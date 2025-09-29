@@ -1,4 +1,4 @@
-// Modern calendar & form submission script with EmailJS
+// Modern calendar & form submission script
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
     const nameInput = document.querySelector('input[placeholder="Your Name What Should We Call You?"]');
@@ -9,17 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailInput = document.querySelector('input[placeholder="Email (Where We\'ll Send Your Invite)"]');
     const calendarBtn = document.querySelector('.calendar-btn');
     const submitBtn = document.querySelector('.submit-btn');
-
-    // Check if all required elements exist
-    if (!form || !nameInput || !ddInput || !mmInput || !yyInput || !phoneInput || !emailInput || !calendarBtn || !submitBtn) {
-        console.error('Some form elements are missing.');
-        return;
-    }
-
-    // Initialize EmailJS
-    if (typeof emailjs !== "undefined" && emailjs.init) {
-        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-    }
 
     // Create modern calendar popup
     function createModernCalendar() {
@@ -128,124 +117,206 @@ document.addEventListener('DOMContentLoaded', function() {
             const month = currentDate.getMonth();
             
             monthYear.textContent = `${currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`;
+            
             calendarGrid.innerHTML = '';
             
-            const dayHeaders = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+            // Day headers
+            const dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
             dayHeaders.forEach(day => {
-                const div = document.createElement('div');
-                div.textContent = day;
-                div.style.cssText = `text-align:center;font-weight:bold;padding:10px 5px;color:#666;`;
-                calendarGrid.appendChild(div);
+                const dayHeader = document.createElement('div');
+                dayHeader.textContent = day;
+                dayHeader.style.cssText = `
+                    text-align: center;
+                    font-weight: bold;
+                    padding: 10px 5px;
+                    color: #666;
+                `;
+                calendarGrid.appendChild(dayHeader);
             });
 
             const firstDay = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-            for(let i=0;i<firstDay;i++){ calendarGrid.appendChild(document.createElement('div')); }
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('div');
+                calendarGrid.appendChild(emptyDay);
+            }
 
-            for(let day=1; day<=daysInMonth; day++){
+            for (let day = 1; day <= daysInMonth; day++) {
                 const dayCell = document.createElement('div');
                 dayCell.textContent = day;
-                dayCell.style.cssText = `text-align:center;padding:10px 5px;cursor:pointer;border-radius:8px;transition:all 0.2s;`;
+                dayCell.style.cssText = `
+                    text-align: center;
+                    padding: 10px 5px;
+                    cursor: pointer;
+                    border-radius: 8px;
+                    transition: all 0.2s;
+                `;
 
-                dayCell.addEventListener('mouseenter',()=>dayCell.style.background='#f0f0f0');
-                dayCell.addEventListener('mouseleave',()=>dayCell.style.background='transparent');
-                dayCell.addEventListener('click',()=>{
-                    ddInput.value=String(day).padStart(2,'0');
-                    mmInput.value=String(month+1).padStart(2,'0');
-                    yyInput.value=String(year).slice(-2);
-                    calendarOverlay.style.display='none';
+                dayCell.addEventListener('mouseenter', function() {
+                    this.style.background = '#f0f0f0';
+                });
+
+                dayCell.addEventListener('mouseleave', function() {
+                    this.style.background = 'transparent';
+                });
+
+                dayCell.addEventListener('click', function() {
+                    const selectedDay = String(day).padStart(2, '0');
+                    const selectedMonth = String(month + 1).padStart(2, '0');
+                    const selectedYear = String(year).slice(-2);
+
+                    ddInput.value = selectedDay;
+                    mmInput.value = selectedMonth;
+                    yyInput.value = selectedYear;
+
+                    calendarOverlay.style.display = 'none';
                 });
 
                 calendarGrid.appendChild(dayCell);
             }
         }
 
-        prevBtn.addEventListener('click',()=>{currentDate.setMonth(currentDate.getMonth()-1); renderCalendar();});
-        nextBtn.addEventListener('click',()=>{currentDate.setMonth(currentDate.getMonth()+1); renderCalendar();});
-        closeBtn.addEventListener('click',()=>{calendarOverlay.style.display='none';});
-        calendarOverlay.addEventListener('click', e=>{if(e.target===calendarOverlay) calendarOverlay.style.display='none';});
+        prevBtn.addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        nextBtn.addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        closeBtn.addEventListener('click', function() {
+            calendarOverlay.style.display = 'none';
+        });
+
+        calendarOverlay.addEventListener('click', function(e) {
+            if (e.target === calendarOverlay) {
+                calendarOverlay.style.display = 'none';
+            }
+        });
 
         return { overlay: calendarOverlay, render: renderCalendar };
     }
 
     const modernCalendar = createModernCalendar();
 
-    calendarBtn.addEventListener('click', e=>{
+    // Calendar button
+    calendarBtn.addEventListener('click', function(e) {
         e.preventDefault();
         modernCalendar.render();
-        modernCalendar.overlay.style.display='flex';
+        modernCalendar.overlay.style.display = 'flex';
     });
 
-    // Birthday validation
-    ddInput.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9]/g,''); if(this.value.length===2) mmInput.focus(); if(parseInt(this.value)>31) this.value='31'; });
-    mmInput.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9]/g,''); if(this.value.length===2) yyInput.focus(); if(parseInt(this.value)>12) this.value='12'; });
-    yyInput.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9]/g,''); });
+    // Birthday input validation
+    ddInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+        if (this.value.length === 2) mmInput.focus();
+        if (parseInt(this.value) > 31) this.value = '31';
+    });
+
+    mmInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+        if (this.value.length === 2) yyInput.focus();
+        if (parseInt(this.value) > 12) this.value = '12';
+    });
+
+    yyInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
 
     // Phone validation
-    phoneInput.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9+]/g,''); });
+    phoneInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9+]/g, '');
+    });
 
     // Email validation
-    function validateEmail(email){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
 
-    // Form submission via EmailJS
-    form.addEventListener('submit', function(e){
+    // Form submission
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        if (!nameInput.value.trim()) {
+            alert('Please enter your name');
+            nameInput.focus();
+            return;
+        }
 
-        if(!nameInput.value.trim()){ alert('Please enter your name'); nameInput.focus(); return; }
-        if(!phoneInput.value.trim()){ alert('Please enter your mobile number'); phoneInput.focus(); return; }
-        if(!validateEmail(emailInput.value)){ alert('Please enter a valid email'); emailInput.focus(); return; }
+        if (!phoneInput.value.trim()) {
+            alert('Please enter your mobile number');
+            phoneInput.focus();
+            return;
+        }
+
+        if (!validateEmail(emailInput.value)) {
+            alert('Please enter a valid email address');
+            emailInput.focus();
+            return;
+        }
 
         const formData = {
             name: nameInput.value,
             birthday: `${ddInput.value}/${mmInput.value}/${yyInput.value}`,
             phone: phoneInput.value,
             email: emailInput.value,
-            timestamp: new Date().toLocaleString()
+            timestamp: new Date().toISOString()
         };
 
-        submitBtn.textContent='Submitting...';
-        submitBtn.disabled=true;
+        submitBtn.textContent = 'Submitting...';
+        submitBtn.disabled = true;
 
-        if (typeof emailjs !== "undefined" && emailjs.send) {
-            emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID', formData)
-            .then(()=>{
-                submitBtn.textContent='Welcome to XFUSED!';
-                submitBtn.style.background='#28a745';
+        // --- Send to Formspree ---
+        fetch('https://mail.google.com/mail/u/4/#inbox', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.ok) {
+                submitBtn.textContent = 'Welcome to XFUSED!';
+                submitBtn.style.background = '#28a745';
                 alert('Thank you for joining the XFUSED waitlist!');
                 form.reset();
-            })
-            .catch(error=>{
-                submitBtn.textContent='Error - Try Again';
-                submitBtn.style.background='#dc3545';
-                alert('Something went wrong. Please try again.');
-                console.error('EmailJS Error:', error);
-            })
-            .finally(()=>{
-                setTimeout(()=>{
-                    submitBtn.textContent='Count Me In';
-                    submitBtn.style.background='#533338';
-                    submitBtn.disabled=false;
-                },3000);
-            });
-        } else {
-            alert('EmailJS is not loaded.');
-            submitBtn.disabled = false;
-        }
+            } else {
+                throw new Error('Submission failed');
+            }
+        })
+        .catch(error => {
+            submitBtn.textContent = 'Error - Try Again';
+            submitBtn.style.background = '#dc3545';
+            alert('Something went wrong. Please try again.');
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            setTimeout(() => {
+                submitBtn.textContent = 'Count Me In';
+                submitBtn.style.background = '#533338';
+                submitBtn.disabled = false;
+            }, 3000);
+        });
     });
 
     // Input focus effects
-    document.querySelectorAll('.form-input').forEach(input=>{
-        input.addEventListener('focus',()=>input.parentElement.style.transform='scale(1.02)');
-        input.addEventListener('blur',()=>input.parentElement.style.transform='scale(1)');
+    const inputs = document.querySelectorAll('.form-input');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+        });
+        input.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+        });
     });
 
-    // Smooth scroll to form (example: if you have a button with id="scrollToFormBtn")
-    const scrollBtn = document.getElementById('scrollToFormBtn');
-    if (scrollBtn && form) {
-        scrollBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            form.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
+    // Smooth scroll to form
+    const scrollBtn = document.getElementById("scroll-btn");
+    const formContainer = document.querySelector(".form-container");
+
+    scrollBtn.addEventListener("click", () => {
+        formContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
 });
