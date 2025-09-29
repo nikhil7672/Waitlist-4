@@ -320,3 +320,54 @@ document.addEventListener('DOMContentLoaded', function() {
         formContainer.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 });
+
+// Get DOM elements
+const daysElement = document.getElementById('days');
+const hoursElement = document.getElementById('hours');
+const minutesElement = document.getElementById('minutes');
+const secondsElement = document.getElementById('seconds');
+
+// Initial values
+let days = 100;
+let hours = 1;
+let minutes = 29;
+let seconds = 20;
+
+let countdownInterval;
+
+// Update the display
+function updateDisplay() {
+  daysElement.textContent = days.toString().padStart(2, '0');
+  hoursElement.textContent = hours.toString().padStart(2, '0');
+  minutesElement.textContent = minutes.toString().padStart(2, '0');
+  secondsElement.textContent = seconds.toString().padStart(2, '0');
+}
+
+// Start the countdown immediately
+function startCountdown() {
+  countdownInterval = setInterval(() => {
+    if (seconds > 0) {
+      seconds--;
+    } else if (minutes > 0) {
+      minutes--;
+      seconds = 59;
+    } else if (hours > 0) {
+      hours--;
+      minutes = 59;
+      seconds = 59;
+    } else if (days > 0) {
+      days--;
+      hours = 23;
+      minutes = 59;
+      seconds = 59;
+    } else {
+      clearInterval(countdownInterval);
+      return;
+    }
+    updateDisplay();
+  }, 1000);
+}
+
+// Initialize
+updateDisplay();
+startCountdown();
