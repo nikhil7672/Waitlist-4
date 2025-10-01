@@ -655,3 +655,718 @@ html {
   scroll-margin-top: 100px;
 }
 
+/* ===================================
+   COMPREHENSIVE RESPONSIVE CODE
+   =================================== */
+
+/* Extra small devices (phones, <576px) */
+@media (max-width: 575.98px) {
+  /* Remove default body background */
+  body {
+    background: #fff;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Header Top */
+  .header-top {
+    height: 50px;
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+  .header-top .logo {
+    width: 100px;
+    height: 71px;
+    top: -20px;
+  }
+  
+  /* Header Bottom - Horizontal Menu */
+  .header-bottom {
+    height: 50px;
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+  .header-bottom nav ul {
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
+  
+  .header-bottom nav a {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    width: 100%;
+    height: auto;
+    padding: 40px 20px;
+    overflow-x: hidden;
+  }
+  
+  .hero-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .hero-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-bottom: 30px;
+  }
+  
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .hero-content {
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .hero-content h2 {
+    width: 100%;
+    height: auto;
+    font-size: 24px;
+    line-height: 1.3;
+    padding: 15px 0;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p.description {
+    width: 100%;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 0.3px;
+  }
+  
+  .hero-content p.signature {
+    position: static;
+    text-align: center;
+    margin: 20px auto 30px;
+    font-size: 16px;
+    right: auto;
+    bottom: auto;
+  }
+  
+  .btn {
+    width: 140px;
+    height: 48px;
+    font-size: 14px;
+    margin: 0 auto 40px;
+    display: flex;
+  }
+  
+  /* Pitches and Form Section */
+  .pitches-and-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 30px 20px;
+  }
+  
+  /* Pitches Section */
+  .pitches-section {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 50px;
+  }
+  
+  .section-number {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .section-number::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+  }
+  
+  .pitch {
+    padding: 20px 15px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .pitch:hover {
+    transform: none;
+    padding-left: 15px;
+  }
+  
+  .pitch-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .pitch-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* Form Section - CRITICAL MOBILE STYLING */
+  .form-section {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    padding: 35px 25px;
+    border-radius: 35px;
+    box-sizing: border-box;
+  }
+  
+  .title-box {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-title {
+    font-size: 28px;
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+  
+  .arrow-down {
+    width: 28px;
+    height: 28px;
+    margin: 10px auto;
+    display: block;
+    transform: rotate(90deg);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .form-input {
+    width: 100%;
+    max-width: 100%;
+    height: 56px;
+    font-size: 15px;
+    padding: 0 18px;
+    border-radius: 14px;
+  }
+  
+  .form-input::placeholder {
+    font-size: 15px;
+  }
+  
+  /* Birthday Group Mobile */
+  .birthday-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .birthday-label {
+    font-size: 16px;
+    color: #FFF;
+    text-align: left;
+  }
+  
+  .birthday-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+  }
+  
+  .form-input.birthday-input {
+    width: 70px;
+    height: 44px;
+    font-size: 16px;
+    flex: 1;
+    max-width: 70px;
+  }
+  
+  .calendar-btn {
+    width: 46px;
+    height: 44px;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  
+  /* Submit Section Mobile */
+  .submit-section {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    border-radius: 14px;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+  }
+  
+  .form-input.email-input-submit {
+    width: 100%;
+    height: 56px;
+    font-size: 15px;
+    padding: 0 18px;
+    background: #FFF;
+    border-radius: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    height: 56px;
+    font-size: 15px;
+    border-radius: 14px;
+    margin-top: 0;
+  }
+  
+  .submit-btn::before {
+    display: none;
+  }
+  
+  /* Tribe Banner Mobile */
+  .tribe-banner {
+    flex-direction: column;
+    gap: 15px;
+    margin: 50px 0;
+    padding: 0 20px;
+  }
+  
+  .tribe-banner .arrows {
+    display: none !important;
+  }
+  
+  .tribe-banner h2 {
+    font-size: 26px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  
+  .tribe-banner .logo {
+    margin: 10px 0;
+  }
+  
+  .tribe-banner .logo img {
+    width: 140px;
+    height: auto;
+  }
+  
+  .text-logo {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* Countdown Mobile - Like Image 2 */
+  .countdown-container {
+    margin: 40px 0;
+    gap: 30px;
+    padding: 30px 20px;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .countdown-item {
+    text-align: center;
+    min-width: 60px;
+  }
+  
+  .countdown-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  
+  .countdown-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  /* Error message */
+  .error-message {
+    font-size: 12px;
+    text-align: left;
+    margin-top: 5px;
+  }
+}
+
+/* Small devices (≥576px and <768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  body {
+    background: #fff;
+    overflow-x: hidden;
+  }
+  
+  .header-top {
+    height: 55px;
+  }
+  
+  .header-top .logo {
+    width: 140px;
+    height: 99px;
+    top: -28px;
+  }
+  
+  .header-bottom {
+    height: 55px;
+    padding: 0 20px;
+  }
+  
+  .header-bottom nav ul {
+    gap: 25px;
+  }
+  
+  .header-bottom nav a {
+    font-size: 13px;
+  }
+  
+  .hero-section {
+    width: 100%;
+    height: auto;
+    padding: 40px 30px;
+  }
+  
+  .hero-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 35px;
+  }
+  
+  .hero-content {
+    padding: 0 30px;
+    text-align: center;
+  }
+  
+  .hero-content h2 {
+    width: 100%;
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+  
+  .hero-content p.description {
+    width: 100%;
+    font-size: 17px;
+    margin-bottom: 40px;
+  }
+  
+  .hero-content p.signature {
+    position: static;
+    text-align: center;
+    margin: 25px auto 35px;
+  }
+  
+  .btn {
+    margin: 0 auto 40px;
+  }
+  
+  .pitches-and-form {
+    flex-direction: column;
+    padding: 40px 30px;
+  }
+  
+  .pitches-section {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 50px;
+  }
+  
+  .section-number {
+    font-size: 36px;
+    text-align: center;
+  }
+  
+  .section-number::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    margin: 0 auto;
+    padding: 40px 30px;
+    border-radius: 40px;
+  }
+  
+  .form-title {
+    font-size: 34px;
+    text-align: center;
+    margin-right: 0;
+    color: #fff;
+  }
+  
+  .arrow-down {
+    margin: 15px auto;
+    display: block;
+  }
+  
+  .form-input {
+    max-width: 100%;
+    height: 62px;
+  }
+  
+  .birthday-group {
+    width: 100%;
+  }
+  
+  .birthday-label {
+    color: #FFF;
+  }
+  
+  .submit-section {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    background: transparent;
+  }
+  
+  .form-input.email-input-submit {
+    width: 100%;
+    height: 62px;
+    background: #FFF;
+    border-radius: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    height: 62px;
+  }
+  
+  .tribe-banner {
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 60px 0;
+  }
+  
+  .tribe-banner .arrows:first-child {
+    margin-right: 1rem;
+  }
+  
+  .tribe-banner .arrows:last-child {
+    margin-left: 1rem;
+  }
+  
+  .tribe-banner h2 {
+    font-size: 34px;
+  }
+  
+  .tribe-banner .logo img {
+    width: 170px;
+  }
+  
+  .countdown-container {
+    gap: 50px;
+    margin: 50px auto;
+    max-width: 500px;
+  }
+  
+  .countdown-number {
+    font-size: 3rem;
+  }
+}
+
+/* Medium devices (≥768px and <992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  body {
+    background: #fff;
+  }
+  
+  .header-top {
+    height: 60px;
+  }
+  
+  .header-top .logo {
+    width: 170px;
+    height: 120px;
+    top: -33px;
+  }
+  
+  .header-bottom {
+    height: 60px;
+  }
+  
+  .header-bottom nav ul {
+    gap: 32px;
+  }
+  
+  .header-bottom nav a {
+    font-size: 15px;
+  }
+  
+  .hero-section {
+    width: 100%;
+    height: auto;
+    padding: 50px 40px;
+  }
+  
+  .hero-container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+  }
+  
+  .hero-image {
+    max-width: 450px;
+    margin-bottom: 40px;
+  }
+  
+  .hero-content {
+    padding: 0 40px;
+    text-align: center;
+  }
+  
+  .hero-content h2 {
+    width: 100%;
+    font-size: 40px;
+  }
+  
+  .hero-content p.description {
+    width: 100%;
+    font-size: 19px;
+    margin-bottom: 50px;
+  }
+  
+  .hero-content p.signature {
+    position: static;
+    text-align: center;
+    margin: 30px auto 40px;
+  }
+  
+  .btn {
+    margin: 0 auto 50px;
+  }
+  
+  .pitches-and-form {
+    flex-direction: column;
+    padding: 50px 40px;
+  }
+  
+  .pitches-section {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
+  
+  .section-number {
+    font-size: 42px;
+    text-align: center;
+  }
+  
+  .section-number::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+    padding: 45px 40px;
+    border-radius: 50px;
+  }
+  
+  .form-title {
+    font-size: 40px;
+    text-align: center;
+    margin-right: 0;
+    color: #fff;
+  }
+  
+  .arrow-down {
+    margin: 15px auto;
+    display: block;
+  }
+  
+  .form-input {
+    max-width: 100%;
+    height: 68px;
+  }
+  
+  .birthday-label {
+    color: #FFF;
+  }
+  
+  .submit-section {
+    width: 100%;
+    height: 68px;
+    flex-direction: row;
+  }
+  
+  .form-input.email-input-submit {
+    flex: 1;
+    height: 68px;
+    margin-bottom: 0;
+  }
+  
+  .submit-btn {
+    width: 180px;
+    height: 68px;
+  }
+  
+  .tribe-banner {
+    margin: 70px 0;
+  }
+  
+  .tribe-banner .arrows:first-child {
+    margin-right: 2rem;
+  }
+  
+  .tribe-banner .arrows:last-child {
+    margin-left: 2rem;
+  }
+  
+  .tribe-banner h2 {
+    font-size: 40px;
+  }
+  
+  .tribe-banner .logo img {
+    width: 200px;
+  }
+  
+  .countdown-container {
+    gap: 70px;
+  }
+  
+  .countdown-number {
+    font-size: 3.5rem;
+  }
+}
+
