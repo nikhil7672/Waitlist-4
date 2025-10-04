@@ -223,6 +223,7 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   flex: 1;
   max-width: 500px;
   margin-right: 90px;
+  margin-bottom: 50px;
 }
 .section-number {
   font-size: 48px;
@@ -315,6 +316,7 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   letter-spacing: 2px;
   text-align: right;
   margin-right: 9rem;
+  margin-bottom: -30px;
 }
 
 .form-group {
@@ -336,6 +338,7 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   object-fit: contain;
   margin-right: -42rem;
   vertical-align: right;
+  margin-bottom: -50px;
 }
 .form-input {
   width: 100%;
