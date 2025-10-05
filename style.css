@@ -1,8 +1,66 @@
-/* Reset & Base */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #333; }
+/*
+====================================
+1. Reset & Base Styles
+====================================
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  background: #fff;
+  color: #333;
+}
 
-/* Custom Fonts */
+/* Scroll anchors for smooth scrolling */
+#pitches {
+  scroll-margin-top: 80px;
+}
+.form-container {
+  scroll-margin-top: 100px;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.text-logo {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+/* Spinner & Error Message */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.error-message {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #e63946;
+  font-weight: 500;
+}
+
+/*
+====================================
+2. Custom Fonts
+====================================
+*/
 @font-face {
   font-family: "Barionette Script PERSONAL USE";
   src: url("./Barionette-Script-Font/BarionetteScript_PERSONAL_USE_ONLY.otf") format("opentype");
@@ -16,7 +74,14 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   src: url("./fonts/Nexa-Trial.otf") format("opentype");
 }
 
-/* Header Top */
+
+/*
+====================================
+3. Header Styles
+====================================
+*/
+
+/* Header Top - Logo Area */
 .header-top {
   width: 100%;
   max-width: 1920px;
@@ -44,13 +109,8 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   height: 100%;
   object-fit: contain;
 }
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
 
-/* Header Bottom */
+/* Header Bottom - Navigation */
 .header-bottom {
   width: 100%;
   max-width: 1920px;
@@ -84,7 +144,11 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   text-decoration: underline;
 }
 
-/* Hero Section */
+/*
+====================================
+4. Hero Section
+====================================
+*/
 .hero-section {
   width: 1920px;
   height: 2120px;
@@ -125,7 +189,7 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   position: relative;
   height: 100%;
 }
-/* Heading */
+/* Heading (with animated gradient) */
 .hero-content h2 {
   display: flex;
   width: 710px;
@@ -146,9 +210,15 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   animation: gradientMove 8s linear infinite;
 }
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 /* Description */
 .hero-content p.description {
@@ -177,6 +247,7 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   letter-spacing: 0.72px;
   text-transform: capitalize;
 }
+/* JOIN NOW Button */
 .btn {
   display: flex;
   width: 158px;
@@ -205,19 +276,92 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   background: #5b2b2a;
   box-shadow: 0 15px 25px rgba(91, 43, 42, 0.5);
 }
-/* Responsive */
-@media(max-width: 900px) {
-  .header-top, .header-bottom { width: 100%; }
-  .hero-container { flex-direction: column; }
-  .hero-image img { width: 80%; height: auto; }
-  .hero-content { text-align: center; padding: 20px; }
-  .btn { margin: 20px auto; }
-  .signature {
-    position: static;
-    margin: 10px auto;
-    text-align: center;
-  }
+
+
+/*
+====================================
+5. Pitches and Form Section
+====================================
+*/
+.pitches-and-form {
+  position: relative;
 }
+
+/* Tribe Banner */
+.tribe-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+.tribe-banner .arrows:first-child {
+  width: 39px;
+  height: 39px;
+  margin-right: 3rem;
+}
+.tribe-banner .arrows:last-child {
+  width: 39px;
+  height: 39px;
+  margin-left: 3rem;
+}
+.tribe-banner h2 {
+  margin: 0;
+  font-family: "Nexa-Trial", Arial, sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 900;
+  color: #000000;
+  text-transform: uppercase;
+  white-space: nowrap;
+  gap: 30px;
+}
+.tribe-banner .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tribe-banner .logo img {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  aspect-ratio: 222 / 157;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+/* Title Box & Arrow */
+.title-box {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.form-title {
+  color: #000;
+  font-family: "Nexa-Trial", Arial, sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 149.417%;
+  text-transform: capitalize;
+  margin-bottom: -30px;
+  letter-spacing: 2px;
+  text-align: right;
+  margin-right: 9rem;
+}
+.arrow-down {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  transform: rotate(90deg);
+  display: inline-block;
+  object-fit: contain;
+  margin-right: -42rem;
+  vertical-align: right;
+  margin-bottom: -50px;
+}
+
 /* Left Side - Pitches */
 .pitches-section {
   flex: 1;
@@ -225,22 +369,7 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   margin-right: 90px;
   margin-bottom: 50px;
 }
-.section-number {
-  font-size: 48px;
-  font-weight: 900;
-  color: #8b7355;
-  margin-bottom: 40px;
-  position: relative;
-}
-.section-number::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #8b7355, #d4b896);
-}
+/* .section-number removed, as it's not in the HTML */
 .pitch {
   margin-bottom: 40px;
   padding: 20px 0;
@@ -271,6 +400,7 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   margin-bottom: 8px;
   line-height: 1.7;
 }
+
 /* Right Side - Form */
 .form-section {
   flex: 1;
@@ -278,9 +408,6 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.pitches-and-form {
-  position: relative;
 }
 .form-container {
   width: 632px;
@@ -296,49 +423,16 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   box-shadow: 
     0 20px 60px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-  /* ✅ Flexbox for centering */
   display: flex;
   flex-direction: column;
-  align-items: center;      /* center horizontally */
-  justify-content: space-evenly; /* equal gaps vertically */
-}
-
-.form-title {
-  color: #000;
-  font-family: "Nexa-Trial", Arial, sans-serif;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: 149.417%;
-  text-transform: capitalize;
-  margin-bottom: 0; /* remove extra gap, flex will handle spacing */
-  letter-spacing: 2px;
-  text-align: right;
-  margin-right: 9rem;
-  margin-bottom: -30px;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .form-group {
-  width: 100%; /* stretch inputs properly */
-  max-width: 500px; 
-}
-
-.title-box {
-  text-align: center;
-  margin-bottom: 10px;
-}
-.arrow-down {
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
-  aspect-ratio: 1/1;
-  transform: rotate(90deg);
-  display: inline-block;
-  object-fit: contain;
-  margin-right: -42rem;
-  vertical-align: right;
-  margin-bottom: -50px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
 }
 .form-input {
   width: 100%;
@@ -370,14 +464,14 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   text-transform: capitalize;
   opacity: 0.9;
 }
-/* Container for birthday inputs */
+
+/* Birthday Group Styling */
 .birthday-group {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 380px;
 }
-/* Label styling */
 .birthday-label {
   color: #908C8C;
   font-family: 'Nexa-Trial', Arial, sans-serif;
@@ -386,13 +480,11 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   line-height: 1.2;
   text-transform: capitalize;
 }
-/* Inputs + calendar button wrapper */
 .birthday-inputs {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-/* Individual birthday input fields (DD, MM, YY) */
 .form-input.birthday-input {
   width: 80px;
   height: 44px;
@@ -406,7 +498,6 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   background: #f7f5f3;
   font-family: 'Nexa-Trial', Arial, sans-serif;
   box-shadow: 1px 1px 4px rgba(0,0,0,0.05), -1px -1px 4px rgba(255,255,255,0.6);
-  transition: all 0.3s ease;
 }
 .form-input.birthday-input:focus {
   outline: none;
@@ -417,7 +508,6 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   color: #aaa;
   font-weight: 400;
 }
-/* Calendar button */
 .calendar-btn {
   width: 50px;
   height: 44px;
@@ -442,9 +532,8 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   transform: scale(0.97);
   box-shadow: inset 1px 1px 4px rgba(0,0,0,0.1), inset -1px -1px 4px rgba(255,255,255,0.4);
 }
-.form-group {
-  margin-bottom: 20px;
-}
+
+/* Submit Section (Email + Button) */
 .submit-section {
   display: flex;
   align-items: center;
@@ -455,7 +544,6 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   border-radius: 18px;
   overflow: hidden;
 }
-/* Email input in submit section */
 .form-input.email-input-submit {
   width: 126.803px;
   height: 50px;
@@ -483,7 +571,6 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
 .form-input.email-input-submit:focus {
   outline: none;
 }
-/* Submit button (merged styles) */
 .submit-btn {
   width: 167.589px;
   height: 77px;
@@ -523,71 +610,13 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   transform: translateY(-50%);
   font-size: 12px;
 }
-/* Spinner */
-.spinner {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top: 2px solid white;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  display: inline-block;
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-/* Tribe Banner */
-.tribe-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 70px;
-  margin-bottom: 70px;
-}
-.tribe-banner .arrows:first-child {
-  width: 39px;
-  height: 39px;
-  margin-right: 3rem;
-}
-.tribe-banner .arrows:last-child {
-  width: 39px;
-  height: 39px;
-  margin-left: 3rem;
-}
-.tribe-banner h2 {
-  margin: 0;
-  font-family: "Nexa-Trial", Arial, sans-serif;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 900;
-  color: #000000;
-  text-transform: uppercase;
-  white-space: nowrap;
-  gap: 30px;
-}
-.tribe-banner .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.tribe-banner .logo img {
-  width: 300px;        /* keep your size */
-  height: auto;
-  object-fit: contain;
-  flex-shrink: 0;
-  aspect-ratio: 222 / 157;
-  margin-left: -10px;  /* pull logo closer to the left text */
-  margin-right: -10px; /* pull logo closer to the right text */
-}
 
-.text-logo {
-  display: flex;
-  align-items: center;
-  gap: 0;
-}
-/* Modern Minimal Countdown */
+
+/*
+====================================
+6. Countdown Section
+====================================
+*/
 .countdown-container {
   margin: 4rem 0;
   display: flex;
@@ -598,22 +627,19 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   font-family: 'Arial', sans-serif;
   flex-wrap: wrap;
 }
-
 .countdown-item {
   text-align: center;
   min-width: 90px;
-  background: #f0f0f0; /* subtle neutral background */
+  background: #f0f0f0;
   padding: 1.5rem 1.2rem;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.08);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .countdown-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
-
 .countdown-number {
   font-size: 4rem;
   font-weight: 900;
@@ -621,7 +647,6 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   margin-bottom: 6px;
   color: #111;
 }
-
 .countdown-label {
   font-size: 1rem;
   font-weight: 600;
@@ -631,8 +656,30 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
 }
 
 
-/* Responsive */
+/*
+====================================
+7. Media Queries (Responsiveness)
+====================================
+*/
+
+@media(max-width: 900px) {
+  /* Header */
+  .header-top, .header-bottom { width: 100%; }
+  
+  /* Hero */
+  .hero-container { flex-direction: column; }
+  .hero-image img { width: 80%; height: auto; }
+  .hero-content { text-align: center; padding: 20px; }
+  .btn { margin: 20px auto; }
+  .signature {
+    position: static;
+    margin: 10px auto;
+    text-align: center;
+  }
+}
+
 @media (max-width: 768px) {
+  /* Countdown */
   .countdown-container {
     gap: 1.5rem;
   }
@@ -640,7 +687,9 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
     font-size: 3rem;
   }
 }
+
 @media (max-width: 480px) {
+  /* Countdown */
   .countdown-item {
     min-width: 60px;
     padding: 1rem;
@@ -651,38 +700,12 @@ body { font-family: 'Open Sans', Arial, sans-serif; background: #fff; color: #33
   .countdown-label {
     font-size: 0.8rem;
   }
-}
-
-@media (max-width: 480px) {
   .countdown-container {
     gap: 15px;
   }
-  .countdown-number {
-    font-size: 2.5rem;
-  }
-  .countdown-label {
-    font-size: 0.8rem;
-  }
-}
-/* Error message styling */
-.error-message {
-  margin-top: 4px;
-  font-size: 13px;
-  color: #e63946;
-  font-weight: 500;
-}
-html {
-  scroll-behavior: smooth;
-}
-#pitches {
-  scroll-margin-top: 80px;
-}
-.form-container {
-  scroll-margin-top: 100px;
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-  body {
-    
-  }
+  /* Body styles for this range if needed */
+  /* body { } */
 }
